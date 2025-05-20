@@ -77,7 +77,7 @@ latest_weather = latest_data['weather']
 
 # Row A - logo + dynamic wind
 a1, a2, a3 = st.columns(3)
-a1.image(Image.open('Streamlit_dashboard\canva-cloudy-wather-icon-MAE_XEFcv8o.png'))
+a1.image(Image.open('canva-cloudy-wather-icon-MAE_XEFcv8o.png'))
 a2.metric("Wind", f"{latest_wind:.1f} mph")
 a3.metric("Weather", latest_weather.capitalize()) 
 
