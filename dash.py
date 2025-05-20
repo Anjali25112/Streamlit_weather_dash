@@ -6,7 +6,7 @@ from PIL import Image
 st.set_page_config(layout="centered")
 
 # Load custom CSS
-with open('Streamlit_dashboard\style.css') as f:
+with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 # Load Data
