@@ -1,46 +1,231 @@
-import streamlit as st
-import pandas as pd
-import plost
-from PIL import Image
+/* Remove top orange/red line */
+.stApp {
+    border-top: none !important;
+}
 
-# Page setting
-st.set_page_config(layout="wide") 
+/* Alternative approach to remove top line */
+header {
+    border-top: none !important;
+}
 
-# Load custom CSS
-with open('Streamlit_dashboard/style.css') as f:
-    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True) 
+/* Remove any potential red/orange decorative elements at the top */
+[data-testid="stAppViewBlockContainer"] > div:first-child,
+[data-testid="stHeader"] {
+    border-top: none !important;
+}
 
-# Load Data
-seattle_weather = pd.read_csv('https://raw.githubusercontent.com/tvst/plost/master/data/seattle-weather.csv', parse_dates=['date'])
+/* Hide any top decorations */
+.main .block-container::before {
+    display: none !important;
+}
 
-# Get the most recent data row
-latest_data = seattle_weather.iloc[-1] 
+/* Row 1 styling - new warm dark theme */
+.css-1r6slb0.e1tzin5v2 {
+    background-color: #2D232E; /* Dark purple background */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
 
-latest_wind = latest_data['wind']
-latest_temp = latest_data['temp_max']
-latest_weather = latest_data['weather'] 
+/* Row 2 styling - complementary to Row 1 */
+.css-12w0qpk.e1tzin5v2 {
+    background-color: #352D39; /* Slightly lighter purple */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 1rem;
+}
 
-# Row A - logo + dynamic wind
-a1, a2, a3 = st.columns(3)
-a1.image(Image.open('Streamlit_dashboard\canva-cloudy-wather-icon-MAE_XEFcv8o.png'))
-a2.metric("Wind", f"{latest_wind:.1f} mph")
-a3.metric("Weather", latest_weather.capitalize()) 
+/* Center text in metric boxes with improved spacing */
+div.css-1ht1j8u.e16fv1kl0 {
+    text-align: center;
+    width: 100%;
+    padding: 0.5rem;
+}
 
-# Row B - temperature, wind, weather repeated or add more
-b1, b2, b3, b4 = st.columns(4)
-b1.metric("Max Temperature", f"{latest_temp:.1f} °F")
-b2.metric("Wind", f"{latest_wind:.1f} mph")
-b3.metric("Weather", latest_weather.capitalize())
-b4.metric("Date", latest_data['date'].strftime('%Y-%m-%d')) 
+/* Larger, bolder metrics for better readability - UPDATED to white */
+.css-1xarl3l.e16fv1kl1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #FFFFFF; /* Changed from gold to white */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
-# Row C - Main chart (Temperature Heatmap only)
-st.markdown('### Seattle Temperature Heatmap')
-plost.time_hist(
-    data=seattle_weather,
-    date='date',
-    x_unit='week',
-    y_unit='day',
-    color='temp_max',
-    aggregate='median',
-    legend=None
-)
+/* Label styling for the metrics - UPDATED */
+.css-1b6a4yl.e16fv1kl1 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #FFFFFF; /* Changed from soft pink to white */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Adjustments for the "third line" in each row */
+div.css-wnm74r.e16fv1kl3 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    text-align: center;
+    padding: 0.25rem;
+}
+
+/* Logo/image adjustments with hover effect - INCREASED SIZE */
+img {
+    display: block;
+    margin: 1.2em auto 0.5em auto;
+    max-width: 100%; /* Increased from 80% */
+    max-height: 130px; /* Increased from 100px */
+    height: auto;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+/* Make charts more aligned and add padding */
+[data-testid="stDecoration"], [data-testid="stDecoration"] div {
+    margin: 0 !important;
+    padding: 0.5rem !important;
+}
+
+/* Make container for elements more compact but maintain readability */
+.css-ocqkz7.e1tzin5v4, .css-10oheav.e1tzin5v4 {
+    margin: 0.25rem !important;
+    padding: 0.25rem !important;
+}
+
+/* Reduce vertical spacing between sections while maintaining structure */
+div.element-container {
+    margin-bottom: 0.75rem !important;
+}
+
+/* Fix padding for metric elements */
+.css-1xarl3l.e16fv1kl1, .css-1b6a4yl.e16fv1kl1 {
+    padding: 0.3rem 0;
+}
+
+/* Hide hamburger menu and footer */
+div.css-r698ls.e8zbici2, footer.css-ipbk5a.egzxvld4, footer.css-12gp8ed.eknhn3m4, div.vg-tooltip-element {
+    display: none;
+}
+
+/* Temperature Heatmap improvements */
+.stPlost {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    background-color: #352D39;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Header styling for all headings (h1-h6) */
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    padding-left: 0.75rem;
+    color: #2196F3; /* Changed to a bright blue color */
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-left: 3px solid #E8786E; /* Coral accent */
+}
+
+/* Specific size adjustments */
+h1 { font-size: 2rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.1rem; }
+h6 { font-size: 1rem; }
+
+/* NEW: Temperature heatmap color scale from blue to red */
+.st-ce {
+    background: linear-gradient(to right, 
+        #0D47A1, /* Dark Blue - Coolest */
+        #2196F3, /* Medium Blue */
+        #4CAF50, /* Green - Moderate */
+        #FFEB3B, /* Yellow - Warm */
+        #FF9800, /* Orange - Very Warm */
+        #F44336  /* Red - Hottest */
+    ) !important;
+}
+
+/* Make darker and lighter variations more distinct */
+.st-c0 { opacity: 0.7 !important; } /* Coolest - slightly transparent */
+.st-c1 { opacity: 0.8 !important; }
+.st-c2 { opacity: 0.9 !important; }
+.st-c3 { opacity: 1.0 !important; } /* Most intense colors */
+.st-c4 { opacity: 0.9 !important; }
+.st-c5 { opacity: 0.8 !important; }
+.st-c6 { opacity: 0.7 !important; } /* Hottest - slightly transparent */
+
+/* Custom tooltip styling for the heatmap */
+.vg-tooltip {
+    background-color: #2D232E !important;
+    border: 1px solid #E8786E !important;
+    border-radius: 4px !important;
+    color: #FFFFFF !important;
+    font-size: 0.9rem !important;
+    padding: 0.5rem !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Add custom scrollbar for better UX */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #2D232E;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #E8786E; /* Coral scrollbar */
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #F4B860; /* Gold on hover */
+}
+
+/* Streamlit specific element overrides */
+.stMetric {
+    background-color: #352D39 !important;
+    border-radius: 8px !important;
+    padding: 10px !important;
+    border-left: 3px solid #E8786E !important;
+}
+
+/* Direct element styling for Streamlit components - UPDATED to white */
+[data-testid="stMetricValue"] {
+    color: #FFFFFF !important; /* Changed from gold to white */
+    font-weight: 700 !important;
+}
+
+[data-testid="stMetricLabel"] {
+    color: #FFFFFF !important; /* Changed from soft pink to white */
+}
+
+/* Fix for heatmap elements */
+.stVegaLiteChart {
+    background-color: transparent !important;
+}
+
+/* Add responsive design improvements */
+@media screen and (max-width: 768px) {
+    .css-1xarl3l.e16fv1kl1 {
+        font-size: 1.8rem;
+    }
+    
+    h1 { font-size: 1.6rem; }
+    h2 { font-size: 1.4rem; }
+    h3 { font-size: 1.3rem; }
+    h4 { font-size: 1.2rem; }
+    h5 { font-size: 1.1rem; }
+    h6 { font-size: 1rem; }
+    
+    .css-1b6a4yl.e16fv1kl1 {
+        font-size: 0.9rem;
+    }
+}
