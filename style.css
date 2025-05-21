@@ -19,90 +19,110 @@ header {
     display: none !important;
 }
 
+/* Global container improvements */
+.stApp {
+    background-color: #121212; /* Darker background for better contrast */
+}
+
 /* Row 1 styling - new warm dark theme */
 .css-1r6slb0.e1tzin5v2 {
     background-color: #2D232E; /* Dark purple background */
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    padding: 1rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
 }
 
 /* Row 2 styling - complementary to Row 1 */
 .css-12w0qpk.e1tzin5v2 {
     background-color: #352D39; /* Slightly lighter purple */
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    padding: 1rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 1.5rem;
 }
 
 /* Center text in metric boxes with improved spacing */
 div.css-1ht1j8u.e16fv1kl0 {
     text-align: center;
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.75rem;
 }
 
-/* Larger, bolder metrics for better readability - UPDATED to white */
+/* Larger, bolder metrics for better readability */
 .css-1xarl3l.e16fv1kl1 {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     font-weight: 700;
-    color: #FFFFFF; /* Changed from gold to white */
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    color: #FFFFFF;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 0.25rem;
 }
 
-/* Label styling for the metrics - UPDATED */
+/* Label styling for the metrics */
 .css-1b6a4yl.e16fv1kl1 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 500;
-    color: #FFFFFF; /* Changed from soft pink to white */
+    color: #FFFFFF;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 /* Adjustments for the "third line" in each row */
 div.css-wnm74r.e16fv1kl3 {
-    margin-left: auto;
-    margin-right: auto;
-    width: 70%;
+    margin: 0 auto;
+    width: 100%;
     text-align: center;
-    padding: 0.25rem;
+    padding: 0.5rem;
 }
 
-/* Logo/image adjustments with hover effect - INCREASED SIZE */
+/* Logo/image adjustments with hover effect */
 img {
     display: block;
-    margin: 1.2em auto 0.5em auto;
-    max-width: 100%; /* Increased from 80% */
-    max-height: 130px; /* Increased from 100px */
+    margin: 1.5em auto 1em auto;
+    max-width: 120px;
+    max-height: 120px;
     height: auto;
-    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+    transition: transform 0.3s ease;
 }
 
 img:hover {
-    transform: scale(1.05);
+    transform: scale(1.08);
+}
+
+/* Better alignment for metric containers */
+.stMetric, .css-12w0qpk.e1tzin5v2 [data-testid="stVerticalBlock"] > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Consistent metric sizing and alignment */
+[data-testid="stMetricValue"], [data-testid="stMetricLabel"] {
+    width: 100%;
+    text-align: center;
 }
 
 /* Make charts more aligned and add padding */
 [data-testid="stDecoration"], [data-testid="stDecoration"] div {
     margin: 0 !important;
-    padding: 0.5rem !important;
+    padding: 1rem !important;
 }
 
-/* Make container for elements more compact but maintain readability */
-.css-ocqkz7.e1tzin5v4, .css-10oheav.e1tzin5v4 {
-    margin: 0.25rem !important;
-    padding: 0.25rem !important;
+/* Consistent padding for all blocks */
+.element-container {
+    padding: 0.5rem 0;
 }
 
-/* Reduce vertical spacing between sections while maintaining structure */
-div.element-container {
-    margin-bottom: 0.75rem !important;
-}
-
-/* Fix padding for metric elements */
-.css-1xarl3l.e16fv1kl1, .css-1b6a4yl.e16fv1kl1 {
-    padding: 0.3rem 0;
+/* Better spacing for metric blocks */
+.stMetric {
+    margin-bottom: 0.5rem !important;
+    padding: 1.25rem !important;
+    background-color: #352D39 !important;
+    border-radius: 10px !important;
+    border-left: 3px solid #E8786E !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Hide hamburger menu and footer */
@@ -112,33 +132,35 @@ div.css-r698ls.e8zbici2, footer.css-ipbk5a.egzxvld4, footer.css-12gp8ed.eknhn3m4
 
 /* Temperature Heatmap improvements */
 .stPlost {
-    margin-top: 1.5rem;
-    padding: 1.25rem;
+    margin-top: 2rem;
+    padding: 1.5rem;
     background-color: #352D39;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Header styling for all headings (h1-h6) */
+/* Header styling with improved spacing */
 h1, h2, h3, h4, h5, h6 {
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
-    padding-left: 0.75rem;
-    color: #2196F3; /* Changed to a bright blue color */
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    color: #2196F3; /* Bright blue color */
     font-weight: 600;
     letter-spacing: 0.5px;
     border-left: 3px solid #E8786E; /* Coral accent */
+    background-color: rgba(45, 35, 46, 0.7);
+    border-radius: 0 8px 8px 0;
 }
 
 /* Specific size adjustments */
 h1 { font-size: 2rem; }
 h2 { font-size: 1.75rem; }
-h3 { font-size: 1.5rem; }
+h3 { font-size: 1.5rem; line-height: 1.4; }
 h4 { font-size: 1.25rem; }
 h5 { font-size: 1.1rem; }
 h6 { font-size: 1rem; }
 
-/* NEW: Temperature heatmap color scale from blue to red */
+/* Temperature heatmap color scale with improved visibility */
 .st-ce {
     background: linear-gradient(to right, 
         #0D47A1, /* Dark Blue - Coolest */
@@ -150,27 +172,27 @@ h6 { font-size: 1rem; }
     ) !important;
 }
 
-/* Make darker and lighter variations more distinct */
-.st-c0 { opacity: 0.7 !important; } /* Coolest - slightly transparent */
-.st-c1 { opacity: 0.8 !important; }
-.st-c2 { opacity: 0.9 !important; }
+/* Better contrast for heatmap cells */
+.st-c0 { opacity: 0.85 !important; } /* Coolest */
+.st-c1 { opacity: 0.88 !important; }
+.st-c2 { opacity: 0.91 !important; }
 .st-c3 { opacity: 1.0 !important; } /* Most intense colors */
-.st-c4 { opacity: 0.9 !important; }
-.st-c5 { opacity: 0.8 !important; }
-.st-c6 { opacity: 0.7 !important; } /* Hottest - slightly transparent */
+.st-c4 { opacity: 0.91 !important; }
+.st-c5 { opacity: 0.88 !important; }
+.st-c6 { opacity: 0.85 !important; } /* Hottest */
 
-/* Custom tooltip styling for the heatmap */
+/* Enhanced tooltip styling for the heatmap */
 .vg-tooltip {
     background-color: #2D232E !important;
     border: 1px solid #E8786E !important;
-    border-radius: 4px !important;
+    border-radius: 6px !important;
     color: #FFFFFF !important;
-    font-size: 0.9rem !important;
-    padding: 0.5rem !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+    font-size: 0.95rem !important;
+    padding: 0.75rem !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4) !important;
 }
 
-/* Add custom scrollbar for better UX */
+/* Enhanced scrollbar styling */
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -178,6 +200,7 @@ h6 { font-size: 1rem; }
 
 ::-webkit-scrollbar-track {
     background: #2D232E;
+    border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -189,27 +212,42 @@ h6 { font-size: 1rem; }
     background: #F4B860; /* Gold on hover */
 }
 
-/* Streamlit specific element overrides */
-.stMetric {
-    background-color: #352D39 !important;
-    border-radius: 8px !important;
-    padding: 10px !important;
-    border-left: 3px solid #E8786E !important;
+/* Ensure metrics have consistent heights in rows */
+.row-widget > div {
+    display: flex;
+    align-items: stretch;
 }
 
-/* Direct element styling for Streamlit components - UPDATED to white */
-[data-testid="stMetricValue"] {
-    color: #FFFFFF !important; /* Changed from gold to white */
-    font-weight: 700 !important;
+/* Improve grid row alignment */
+[data-testid="stHorizontalBlock"] {
+    align-items: stretch !important;
+    gap: 1rem !important;
 }
 
-[data-testid="stMetricLabel"] {
-    color: #FFFFFF !important; /* Changed from soft pink to white */
+/* Ensure columns in horizontal blocks have equal heights */
+[data-testid="stHorizontalBlock"] > div {
+    display: flex !important;
+    flex-direction: column !important;
 }
 
-/* Fix for heatmap elements */
+/* Fix for heatmap elements and better background */
 .stVegaLiteChart {
     background-color: transparent !important;
+    padding: 1rem !important;
+    margin-top: 1rem !important;
+}
+
+/* Fix heatmap alignment */
+.stVegaLiteChart > div {
+    display: flex;
+    justify-content: center;
+    width: 100% !important;
+}
+
+/* Improve heatmap legibility */
+.stVegaLiteChart text {
+    fill: #FFFFFF !important;
+    font-size: 11px !important;
 }
 
 /* Add responsive design improvements */
@@ -221,11 +259,22 @@ h6 { font-size: 1rem; }
     h1 { font-size: 1.6rem; }
     h2 { font-size: 1.4rem; }
     h3 { font-size: 1.3rem; }
-    h4 { font-size: 1.2rem; }
-    h5 { font-size: 1.1rem; }
-    h6 { font-size: 1rem; }
     
     .css-1b6a4yl.e16fv1kl1 {
         font-size: 0.9rem;
+    }
+    
+    .stMetric {
+        padding: 0.75rem !important;
+    }
+    
+    /* Better mobile spacing */
+    [data-testid="stHorizontalBlock"] {
+        flex-direction: column !important;
+    }
+    
+    /* Improve mobile heatmap view */
+    .stVegaLiteChart {
+        overflow-x: auto !important;
     }
 }
