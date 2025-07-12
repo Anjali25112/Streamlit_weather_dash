@@ -1,5 +1,7 @@
 ### Goal: Built an interactive weather dashboard using Python, Streamlit, and CSS, visualizing historical weather data from a CSV file. The app provides key weather statistics (temperature, wind, conditions) along with a dynamic heatmap showcasing temperature trends across weeks and weekdays for Seattle.
 
+website link: appweatherdash-mt8tkhzj2kcaf5w4nqccva.streamlit.app
+
 #### Key Findings
 - Designed a functional data dashboard with real-time interactivity.
 
